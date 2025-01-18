@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5f9; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            position: relative;
+        }
+        .navbar {
+            background-color: #2e6f8f;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h4 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .navbar button {
+            margin-left: 10px;
+        }
+        .navbar .user-profile {
+            display: flex;
+            align-items: center;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .circle-top-left, .circle-top-right {
+            top: -30px;
+            width: 80px;
+            height: 80px;
+            background-color: #ff8c00;
+        }
+        .circle-bottom-left, .circle-bottom-right {
+            bottom: -30px;
+            width: 60px;
+            height: 60px;
+            background-color: #4a90e2;
+        }
+        .circle-top-left {
+            left: -30px;
+        }
+        .circle-top-right {
+            right: -30px;
+        }
+        .circle-bottom-left {
+            left: 15px;
+        }
+        .circle-bottom-right {
+            right: 15px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+        .greeting-bar {
+            background-color: #4a90e2;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        .feature-box {
+            background-color: #0097a7;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .feature-box:hover {
+            background-color: #007c91;
+            transform: translateY(-5px);
+        }
+        .feature-box i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .btn {
+            margin: 10px 0;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #007c91;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #005f6a;
+        }
+        @media (max-width: 768px) {
+            .circle-top-left, .circle-top-right {
+                top: -15px;
+                width: 60px;
+                height: 60px;
+            }
+            .circle-bottom-left, .circle-bottom-right {
+                bottom: -15px;
+                width: 50px;
+                height: 50px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Circles -->
+    <div class="circle circle-top-left"></div>
+    <div class="circle circle-top-right"></div>
+    <div class="circle circle-bottom-left"></div>
+    <div class="circle circle-bottom-right"></div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h4>Hi, <span id="username">{{ user.profile.full_name }}</span></h4>
+        <div class="user-profile">
+            <button class="btn btn-light" onclick="location.href='{profile}'">Profile</button>
+            <button class="btn btn-light" onclick="location.href='{user_logout}'">Logout</button>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Greeting Section -->
+        <div class="greeting-bar">
+            <h4>Welcome back, {{ user.profile.full_name }}!</h4>
+            <p>Explore the features available on your dashboard.</p>
+        </div>
+
+        <!-- Feature Boxes -->
+        <div class="feature-box">
+            <i class="fas fa-microphone"></i>
+            <p>Speech to Text</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-pen"></i>
+            <p>Handwriting Recognition</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-language"></i>
+            <p>Multilingual</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-book"></i>
+            <p>Notes</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-calculator"></i>
+            <p>Calculator</p>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
